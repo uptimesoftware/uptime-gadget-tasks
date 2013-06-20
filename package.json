@@ -5,10 +5,10 @@
   "homepage": "https://github.com/uptimesoftware/uptime-gadget-tasks",
   "repository": {
     "type": "git",
-    "url": "git://github.com/uptimesoftware/uptimeGadgetTasks.git"
+    "url": "git://github.com/uptimesoftware/uptime-gadget-tasks.git"
   },
   "bugs": {
-    "url": "https://github.com/uptimesoftware/uptimeGadgetTasks/issues"
+    "url": "https://github.com/uptimesoftware/uptime-gadget-tasks/issues"
   },
   "licenses": [
     {

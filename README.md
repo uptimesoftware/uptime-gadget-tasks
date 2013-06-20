@@ -17,33 +17,23 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('uptime-gadget-tasks');
 ```
 
-## Usage Examples
-### The "uptime-gadget" tasks
+## The "uptime-gadget" tasks
 
-#### "compress" task
-_Run this task with the 'grunt uptime-gadget:compress' command_
+### "compress" task
+> Compresses everything in the `src/` folder into `target/[GadgetName].zip`. 
 
-This will compress everything in the src/ folder into target/[GadgetName].zip
+```shell
+grunt uptime-gadget:compress --target=[desired_output_folder]
+```
+- GadgetName is the name found in package.json
+- `--target` flag is optional.  If not specified, output will simply go to a subfolder called `target/` as shown above.
 
-_Run this task with 'grunt uptime-gadget:compress --target=[desired_output_folder]' to output to a specific folder other than target/_
-
-### "mavenDeploy" task
-Make sure to have a config file 'mavenOptions.json' present before running this file.  See Maven Options section for more
-
-_Run this task with the 'grunt uptime-gadget:mavenDeploy' command_
-
-Further details can be found in the documentation for the [grunt-maven-tasks](https://github.com/smh/grunt-maven-tasks)
-
-### "mavenRelease" task
-Make sure to have a config file 'mavenOptions.json' present before running this file.  See Maven Options section for more
-
-_Run this task with the 'grunt uptime-gadget:mavenRelease' command_
-
-Further details can be found in the documentation for the [grunt-maven-tasks](https://github.com/smh/grunt-maven-tasks)
+### Maven Deploy and Release tasks
+> Compresses the `src/` directory (just as in the `compress` task) and then deploys or releases the zip to a Maven repository.
 
 
-## Maven Options
-'mavenOptions.json' file is expected for the "deploy" and "release" tasks.  Make sure that it includes the following options:
+`mavenOptions.json` file is expected for the `mavenDeploy` and `mavenRelease` tasks.  Make sure that it includes the following options:
+```js
 {
 	"groupId": "[group_id]",
 	"snapshotRepositoryId": "[snapshot repository id used for authentication purposes, as pulled from ~/.m2/settings.xml]",
@@ -51,3 +41,16 @@ Further details can be found in the documentation for the [grunt-maven-tasks](ht
 	"releaseRepositoryId": "[release repository id used for authentication purposes, as pulled from ~/.m2/settings.xml]",
 	"releaseUrl": "[URL of the release repository]"
 }
+```
+
+Further details about Maven deploying and releasing can be found in the documentation for the [grunt-maven-tasks](https://github.com/smh/grunt-maven-tasks) plugin.
+
+#### "mavenDeploy" task
+```shell
+grunt uptime-gadget:mavenDeploy
+```
+
+#### "mavenRelease" task
+```shell
+grunt uptime-gadget:mavenRelease
+```
