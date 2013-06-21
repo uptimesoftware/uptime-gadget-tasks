@@ -23,12 +23,12 @@ module.exports = function(grunt) {
 	grunt.registerTask('uptime-gadget:mavenRelease', ["setMavenTaskOptions", "maven:release"]);
 
 	grunt.registerTask('setMavenTaskOptions', 'Loads mavenOptions.json and populates config for grunt-maven-tasks plugin', function() {
-		var mavenUserConfigFilename = "mavenOptions.json";
+		var mavenUserConfigFilename = "userOptions/mavenOptions.json";
 		if (!grunt.file.exists(mavenUserConfigFilename)) {
 			grunt.fatal("Missing the required " + mavenUserConfigFilename + " config file.");
 			return;
 		}
-		grunt.config.set("mavenUserOptions", grunt.file.readJSON('mavenOptions.json'));
+		grunt.config.set("mavenUserOptions", grunt.file.readJSON(mavenUserConfigFilename));
 		grunt.config.requires("mavenUserOptions.groupId", "mavenUserOptions.snapshotRepositoryId", "mavenUserOptions.snapshotUrl", 
 								"mavenUserOptions.releaseRepositoryId", "mavenUserOptions.releaseUrl");
 		grunt.config.set('maven', { 

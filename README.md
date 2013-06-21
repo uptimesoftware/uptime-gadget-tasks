@@ -32,7 +32,7 @@ grunt uptime-gadget:compress --target=[desired_output_folder]
 > Compresses the `src/` directory (just as in the `compress` task) and then deploys or releases the zip to a Maven repository.
 
 
-`mavenOptions.json` file is expected for the `mavenDeploy` and `mavenRelease` tasks.  Make sure that it includes the following options:
+`mavenOptions.json` file is expected in a folder `userOptions/` for the `mavenDeploy` and `mavenRelease` tasks.  Make sure that it includes the following options:
 ```js
 {
 	"groupId": "[group_id]",
