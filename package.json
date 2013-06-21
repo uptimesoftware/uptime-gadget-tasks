@@ -7,9 +7,6 @@
     "type": "git",
     "url": "git://github.com/uptimesoftware/uptime-gadget-tasks.git"
   },
-  "bugs": {
-    "url": "https://github.com/uptimesoftware/uptime-gadget-tasks/issues"
-  },
   "licenses": [
     {
       "type": "MIT",
