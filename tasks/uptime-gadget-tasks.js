@@ -36,7 +36,8 @@ module.exports = function(grunt) {
 			options : {
 				process : function(content, srcpath) {
 					return grunt.template.process(content);
-				}
+				},
+				noProcess : [ '**/*.png', '**/*.gif', '**/*.jpg' ]
 			},
 			files : srcFileSet
 		}
