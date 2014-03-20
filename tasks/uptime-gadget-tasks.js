@@ -35,9 +35,18 @@ module.exports = function(grunt) {
 		main : {
 			options : {
 				process : function(content, srcpath) {
+					// TODO: maybe limit this to only definition.xml and *.js?
 					return grunt.template.process(content);
 				},
-				noProcess : [ '**/*.png', '**/*.gif', '**/*.jpg' ]
+				// the noProcess list is common file types we want to skip.
+				// Used the following find command to discover file extns in
+				// use:
+				// find . -type f -path '*/src/*'| perl -e
+				// 'while(<STDIN>){chomp; if (index($_,".",1) == -1){next;};my
+				// @pieces = split(/\./, $_); print "$pieces[$#pieces]\n"}' |
+				// sort | uniq
+				noProcess : [ '**/*.png', '**/*.gif', '**/*.jpg', '**/*.jpeg', '**/*.css', '**/*.scss', '**/*.less', '**/*.eot',
+						'**/*.svg', '**/*.ttf', '**/*.woff', '**/*.otf' ]
 			},
 			files : srcFileSet
 		}
